@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
       },
       verifiedBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'AlumniAdmin'
+        ref: 'Admin'
       }
     }
   },
