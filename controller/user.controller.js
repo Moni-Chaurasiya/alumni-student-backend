@@ -471,4 +471,145 @@ exports.getAlumni = async (req, res) => {
   }
 };
 
+exports.updateAlumniProfile = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { jobDetails, skills, contactPreferences, industry, location } = req.body;
+
+    if (!jobDetails || !skills || !contactPreferences) {
+      return res.status(400).json({
+        success: false,
+        message: "All required fields (jobDetails, skills, contactPreferences) are required.",
+      });
+    }
+
+    const parsedSkills = Array.isArray(skills) ? skills : [skills];
+
+    const alumni = await Alumni.findOne({ userId }).exec();
+
+    if (!alumni) {
+      return res.status(404).json({
+        success: false,
+        message: "Alumni profile not found.",
+      });
+    }
+
+    alumni.jobDetails = jobDetails;
+    alumni.skills = parsedSkills;
+    alumni.contactPreferences = contactPreferences;
+    alumni.industry = industry;
+    alumni.location = location;
+
+    await alumni.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Alumni profile updated successfully.",
+      data: alumni,
+    });
+  } catch (error) {
+    console.error("Error updating alumni profile:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Error updating alumni profile",
+      error: error.message,
+    });
+  }
+};
+
+exports.updateStudentProfile = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { academicDetails, interests, careerGoals } = req.body;
+
+  
+    if (!academicDetails || !interests || !careerGoals) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields (academicDetails, interests, careerGoals) are required.",
+      });
+    }
+
+    
+    const parsedInterests = Array.isArray(interests) ? interests : [interests];
+
+    
+    const student = await Student.findOne({ userId }).exec();
+
+    if (!student) {
+      return res.status(404).json({
+        success: false,
+        message: "Student profile not found.",
+      });
+    }
+
+    
+    student.academicDetails = academicDetails;
+    student.interests = parsedInterests;
+    student.careerGoals = careerGoals;
+
+    await student.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Student profile updated successfully.",
+      data: student,
+    });
+  } catch (error) {
+    console.error("Error updating student profile:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Error updating student profile",
+      error: error.message,
+    });
+  }
+};
+
+exports.updateFacultyProfile = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { research, projects, engagementActivities } = req.body;
+
+    if (!research || !projects || !engagementActivities) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields (research, projects, engagementActivities) are required.",
+      });
+    }
+
+    const parsedResearch = Array.isArray(research) ? research : [research];
+    const parsedProjects = Array.isArray(projects) ? projects : [projects];
+    const parsedEngagementActivities = Array.isArray(engagementActivities)
+      ? engagementActivities
+      : [engagementActivities];
+
+    const faculty = await Faculty.findOne({ userId }).exec();
+
+    if (!faculty) {
+      return res.status(404).json({
+        success: false,
+        message: "Faculty profile not found.",
+      });
+    }
+
+    faculty.research = parsedResearch; 
+    faculty.projects = parsedProjects; 
+    faculty.engagementActivities = parsedEngagementActivities;
+
+    await faculty.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Faculty profile updated successfully.",
+      data: faculty,
+    });
+  } catch (error) {
+    console.error("Error updating faculty profile:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Error updating faculty profile",
+      error: error.message,
+    });
+  }
+};
 
