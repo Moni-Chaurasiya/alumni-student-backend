@@ -144,3 +144,33 @@ exports.auth = async (req, res, next) => {
       });
   }
 };
+
+exports.admin = async (req, res, next) => {
+  try {
+    const token = req.cookies.token;
+    if (!token) {
+      return res.status(500).json({
+        success: false,
+        message: 'token not found',
+      });
+    }
+
+    const data = jwt.verify(token, process.env.SECRET_KEY);
+    if (data.admin.role !== 'admin') {
+      return res.status(200).json({
+        success: false,
+        message: 'user is not a admin',
+      });
+    }
+
+    req.admin = data;
+
+    next();
+  } catch (error) {
+    console.log('admin middleware:', error);
+    return res.status(500).json({
+      success: false,
+      message: error,
+    });
+  }
+};

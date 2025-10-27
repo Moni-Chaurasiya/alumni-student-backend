@@ -22,10 +22,7 @@ const {
   verifySignInBody,
   auth,
   admin,
-  isAlumni,
-  isFaculty,
-  isStudent
-} = require('../middleware/alumni.middleware');
+} = require('../middleware/auth.middleware');
 
 router.post('/signup', verifySignUpBody, signup); 
 router.post('/signin', verifySignInBody, signin); 

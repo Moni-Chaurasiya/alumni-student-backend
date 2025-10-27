@@ -12,7 +12,6 @@ const {
 } = require('../controller/mentorShips.controller');
 
 const {
-  auth,
   isAlumni,
   isStudent
 } = require('../middleware/alumni.middleware');
