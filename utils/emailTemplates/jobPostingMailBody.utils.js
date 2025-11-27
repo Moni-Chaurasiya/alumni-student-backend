@@ -1,4 +1,5 @@
 function jobPostingMailBody(jobTitle, companyName, jobId, jobDescription) {
+    let date= new Date();
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -125,7 +126,7 @@ function jobPostingMailBody(jobTitle, companyName, jobId, jobDescription) {
         </div>
 
         <div class="footer">
-            <p>&copy; 2024 Technical Vidya at Lokmanya Tilak College of Engineering. All Rights Reserved.</p>
+            <p>&copy; ${date.getFullYear()} Lokmanya Tilak College of Engineering. All Rights Reserved.</p>
             <p>123 Engineering Road, Koparkhairane, Navi Mumbai</p>
         </div>
     </div>

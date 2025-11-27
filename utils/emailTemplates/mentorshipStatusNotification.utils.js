@@ -1,4 +1,5 @@
 function mentorshipStatusNotification(studentName, alumniName, status) {
+    let date= new Date();
     const statusText = status === 'accepted' ? 'accepted' : 'declined';
     const statusColor = status === 'accepted' ? '#28a745' : '#d93025';
     const messageText = status === 'accepted' 
@@ -121,7 +122,7 @@ function mentorshipStatusNotification(studentName, alumniName, status) {
         </div>
 
         <div class="footer">
-            <p>&copy; 2024 Technical Vidya at Lokmanya Tilak College of Engineering. All Rights Reserved.</p>
+            <p>&copy; ${date.getFullYear()} Lokmanya Tilak College of Engineering. All Rights Reserved.</p>
             <p>123 Engineering Road, Koparkhairane, Navi Mumbai</p>
         </div>
     </div>
