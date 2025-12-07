@@ -1,4 +1,4 @@
-const Alumni =required('../model/alumni.model')
+const Alumni =require('../model/alumni.model')
 
 exports.searchAlumni = async (req, res) => {
   try {

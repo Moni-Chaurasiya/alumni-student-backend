@@ -6,7 +6,7 @@ const {
   getNewsById,
   updateNews,
   deleteNews,
-} = require('../controller/alumni.controller');
+} = require('../controller/NewsPost.controller');
 
 const {
   auth,

@@ -1,10 +1,10 @@
 const Mentorship=require('../model/mentorship.model')
 const User=require('../model/user.model')
-const Student=required('../model/student.model')
-const Alumni =required('../model/alumni.model')
+const Student=require('../model/student.model')
+const Alumni =require('../model/alumni.model')
 const mentorshipRequestMailBody = require('../utils/emailTemplates/mentorshipRequestMailBody.utils');
 const mentorshipStatusNotification = require('../utils/emailTemplates/mentorshipStatusNotification.utils');
-const { mailSender } = require('../utils/mailSender');
+const { mailSender } = require('../utils/nodemailer.utils');
 
 exports.requestMentorship = async (req, res) => {
   try {

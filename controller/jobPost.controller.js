@@ -1,4 +1,4 @@
-const { mailSender } = require('../utils/mailSender');
+const { mailSender } = require('../utils/nodemailer.utils');
 const { jobPostingMailBody } = require('../utils/emailTemplates/jobPostingMailBody.utils');
 const User = require('../model/user.model');
 const Job = require('../model/job.model');

@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "alumni-student-backend",
   "version": "1.0.0",
   "description": "backend for alumni-student website",
@@ -8,7 +9,7 @@
     "dev": "nodemon index.js",
     "format": "prettier --write ."
   },
-  "author": "Technical Vidya",
+  "author": "Moni Chaurasiya",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^3.0.2",

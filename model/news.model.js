@@ -1,4 +1,4 @@
-const mongoose= required('mongoose');
+const mongoose= require('mongoose');
 
 const newsSchema= new mongoose.Schema({
     title:{
@@ -30,4 +30,4 @@ const newsSchema= new mongoose.Schema({
     
 },{Timestamps:true});
 
-model.exports= mongoose.model('News',newsSchema);
+module.exports= mongoose.model('News',newsSchema);

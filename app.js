@@ -36,7 +36,7 @@ const adminRoutes = require('./routes/admin.route');
 const mentorshipRoutes = require('./routes/mentorship.route');
 const jobPostRoutes = require('./routes/jobPost.route');
 const newsPostRoutes = require('./routes/newsPost.route');
-const discussionPostRoutes = require('./routes/discussionPost.route');
+const discussionPostRoutes = require('./routes/discussion.route');
 
 
 //*****routes********

@@ -1,5 +1,5 @@
 const  User  = require('../model/user.model');
-const News = require('../model/newsPost.model');
+const News = require('../model/news.model');
 const { uploadFileOnCloudinary } = require('../utils/uploadOnCloudinary.utils');
 const { sendNotificationByRole } = require('../utils/pushNotificationService');
 
